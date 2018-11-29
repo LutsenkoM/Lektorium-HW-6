@@ -1,0 +1,29 @@
+.slider-wrap {
+    position: relative;
+    width: 640px;
+    margin: 0 auto;
+}
+
+#prev-arrow {
+    position: absolute;
+    /*left: -40px;*/
+    left: 0;
+    top: 150px;
+    cursor: pointer;
+}
+#next-arrow {
+    position: absolute;
+    /*right: -40px;*/
+    right: 0;
+    top: 150px;
+    cursor: pointer;
+}
+
+#prev-arrow, #next-arrow {
+    font-size: 80px;
+    color: red;
+}
+
+.d-none {
+    display: none;
+}
