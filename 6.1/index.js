@@ -1,30 +1,36 @@
 var slidesArray = [],
+    slidesContainer = document.getElementById('slides-container'),
     slideIndex = document.querySelectorAll('.slide'),
+    slidesWindow = document.getElementById('slider-window'),
     nextArrow = document.getElementById('next-arrow'),
     prevArrow = document.getElementById('prev-arrow'),
-    j = 0 ;
+    j = 0,
+    left = 0,
+    slidesContainerWidth = 0,
+    slidesWidthCount = 0;
 
 for (var i = 0; i < slideIndex.length; i++){
     slidesArray.push(slideIndex[i]);
-    if ( i !==0 ) {
-        slideIndex[i].classList.add('d-none');
-    }
+    slidesContainerWidth += slideIndex[i].offsetWidth ;
+    slidesWidthCount = slidesContainerWidth -  slideIndex[slideIndex.length - 1].offsetWidth
 }
+
 
 var slidesCount = slidesArray.length;
 
 function nextSlide() {
     j ++;
-
     if ( slidesCount == j) {
         j = 0;
-        slidesArray[slidesCount-1].classList.add('d-none');
     }
-    slidesArray[j].classList.remove('d-none');
 
-    if ( j !==0 ) {
-        slidesArray[j-1].classList.add('d-none');
+    if ( slidesWidthCount <= left){
+        left = 0;
+    } else {
+        left += slidesArray[j].offsetWidth;
     }
+
+    slidesContainer.style.left = - left + 'px';
     console.log(j);
 }
 
@@ -32,20 +38,13 @@ function prevSlide() {
     j--;
 
     if ( j < 0) {
-        j = slidesCount;
-        // slidesArray[0].classList.add('d-none');
+        j = slidesCount - 1;
+        left = slidesWidthCount;
+    } else {
+        left -= slidesWidthCount - slidesArray[j].offsetWidth;
     }
 
-    // if ( j == slidesCount - 1 ) {
-    //     // slidesArray[0].classList.add('d-none');
-    //     // slidesArray[slidesCount - 1].classList.add('d-none');
-    //     slidesArray[0].classList.add('d-none');
-    // }
-    //
-    // // if ( j !== slidesCount) {
-    //     slidesArray[j].classList.remove('d-none');
-    //     slidesArray[j+1].classList.add('d-none');
-    // // }
+    slidesContainer.style.left = - left + 'px';
 
     console.log(j);
 }
@@ -53,6 +52,5 @@ function prevSlide() {
 
 
 nextArrow.onclick = nextSlide;
+slidesWindow.onclick = nextSlide;
 prevArrow.onclick = prevSlide;
-
-// console.log(slidesCount);
