@@ -7,13 +7,29 @@
 }
 
 .element {
+    position: absolute;
     display: inline-block;
+    cursor: grab;
     padding: 10px 30px;
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    cursor: grab;
 }
+
+.close {
+    padding: 2px;
+    margin-left: 20px;
+    color: #fff;
+    font-family: sans-serif;
+    background-color: #ff0000;
+    cursor: pointer;
+    display: none;
+}
+
+.display {
+    display: inline-block;
+}
+
 .grabbing {
     cursor: grabbing;
 }

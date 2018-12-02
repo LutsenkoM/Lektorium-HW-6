@@ -1,16 +1,25 @@
 var elem = document.querySelectorAll('.element'),
-    wrap = document.getElementById('dnd-wrap');
-    // elemIndex = document.querySelectorAll('.element'),
-    // elemArray = [];
+    wrap = document.getElementById('dnd-wrap'),
+    elemIndex = document.querySelectorAll('.element'),
+    elemArray = [];
 
+for (var i = 0; i < elemIndex.length; i++){
+    var topPadding = Math.floor(Math.random() * 300) + 1;
+        leftPadding = Math.floor(Math.random() * 300) + 1;
 
-// for (var i = 0; i < slideIndex.length; i++){
-//     elemArray.push(slideIndex[i]);
-//
-// }
+    elemIndex[i].style.top = topPadding + 'px';
+    elemIndex[i].style.left = leftPadding + 'px';
+    elemArray.push(elemIndex[i]);
+}
 
 document.addEventListener('mousedown',function(e) {
     var t = e.target;
+
+    if ( t.classList.contains('close') ){
+        var indexEl = elemArray.indexOf(t.parentNode);
+        elemArray.splice(indexEl, 1);
+        t.parentNode.remove();
+    }
 
     if ( t.classList.contains('element') ){
 
@@ -40,7 +49,9 @@ document.addEventListener('mousedown',function(e) {
             t.classList.remove('grabbing');
             document.onmousemove = null;
             t.onmouseup = null;
-        }
+        };
+
+        console.log(t.childNodes[1].classList.toggle('display'));
     }
     
 });
