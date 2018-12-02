@@ -15,7 +15,7 @@ for (var i = 0; i < slideIndex.length; i++){
     slidesWidthCount = slidesContainerWidth -  slideIndex[slideIndex.length - 1].offsetWidth
 }
 
-
+slidesContainer.style.width = slidesContainerWidth + "px";
 var slidesCount = slidesArray.length;
 
 function nextSlide() {

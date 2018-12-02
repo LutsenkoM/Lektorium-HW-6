@@ -10,7 +10,6 @@ body {
 }
 #slides-container {
     position: relative;
-    width: 5000px;
     left: 0;
     font-size:0;
     transition: left 500ms linear;
