@@ -1,27 +1,50 @@
-console.log("Ready!");
-
 // 1. isPrime - Returns true or false, indicating whether the given number is prime.
-
 function isPrime (x) {
-  var arr =[];
-  var integerArray = [];
+  var result;
 
   for (var i = 0, y = 1; i <= x ; i++, y++) {
 
-    arr[i] = x / y;
-
-    if ( Number.isInteger(arr[i]) === true ) {
-      integerArray.push(arr[i]);
+    result = x / y;
+    if ( x == 0 || x == 1 ) {
+      return false;
+    } else if (result !== x && result !==1 && Number.isInteger(result) === true) {
+      return false;
+    } else if ( y === x ) {
+      return true
     }
 
   }
 
-  if ( 2 < integerArray.length ) {
-    return false
-  } else {
-    return true
-  }
-
 }
 
-// console.log(isPrime (100000000));
+console.log(isPrime(0));
+console.log(isPrime(1));
+console.log(isPrime(17));
+console.log(isPrime(10000000000000));
+
+
+// 2. factorial - Returns a number that is the factorial of the given number.
+function factorial(x) {
+  if ( x !== 1 ) {
+    return x * factorial(x - 1);
+  } else {
+    return x;
+  }
+}
+
+factorial(6);
+
+
+// 3. fib - Returns the nth Fibonacci number.
+function fib(x) {
+  var a = 1,
+    b = 1;
+  for (var i = 3; i <= x; i++) {
+    var c = a + b;
+    a = b;
+    b = c;
+  }
+  return b;
+}
+
+fib(20);
