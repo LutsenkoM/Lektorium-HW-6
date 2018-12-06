@@ -48,3 +48,39 @@ function fib(x) {
 }
 
 fib(20);
+
+// 4. isSorted - Returns true or false, indicating whether the given array of numbers is sorted.
+
+var array1 = [];
+var array2 = [-Infinity, -5, 0, 3, 9];
+var array3 = [3, 9, -3, 10];
+
+function isSorted(arr){
+  var boolean;
+
+  if (arr.length !== 0) {
+
+    for(var i = 0; i < arr.length - 1; i ++){
+
+      if ( arr[i] < arr[i+1] ) {
+        boolean = true;
+      } else {
+        boolean = false;
+        return boolean;
+      }
+
+    }
+
+  } else {
+    boolean = true;
+  }
+
+  return boolean;
+
+}
+isSorted(array1);
+isSorted(array2);
+isSorted(array3);
+
+
+
