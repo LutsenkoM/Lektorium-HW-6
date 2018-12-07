@@ -49,6 +49,7 @@ function fib(x) {
 
 fib(20);
 
+
 // 4. isSorted - Returns true or false, indicating whether the given array of numbers is sorted.
 
 var array1 = [];
@@ -82,5 +83,82 @@ isSorted(array1);
 isSorted(array2);
 isSorted(array3);
 
+/*
+5. reverse - Reverses the given string (yes, using the built in reverse function is cheating).
+reverse('')                         // ''
+reverse('abcdef')                   // 'fedcba'
+*/
 
+function reverse(string) {
 
+  var array = string.split('');
+  var newArray = [];
+
+  for (var i = 0; i < array.length; i++) {
+    newArray[(array.length - 1) - i] = array[i] ;
+  }
+
+  var newString = newArray.join('');
+
+  return newString;
+
+}
+
+reverse('abcdef');
+
+/*
+6. indexOf - Implement the indexOf function for arrays.
+indexOf([1, 2, 3], 1)               // 0
+indexOf([1, 2, 3], 4)               // -1
+*/
+
+function indexOf(arr, x) {
+  for (var i = 0; i < arr.length; i++) {
+    if ( arr[i] === x ) {
+      return i;
+    }
+  }
+}
+
+indexOf([1, 2, 3], 4);
+
+/*
+7. isPalindrome - Return true or false indicating whether the given string is a plaindrone (case and space insensitive).
+isPalindrome('')                                // true
+isPalindrome('abcdcba')                         // true
+isPalindrome('abcd')                            // false
+isPalindrome('A man a plan a canal Panama')     // true
+*/
+
+function isPalindrome(string) {
+
+  var lowString = string.toLowerCase();
+  var array = lowString .split('');
+  var newArray = [];
+
+  if (string === '') {
+    return true;
+  } else {
+    for (var j = 0; j < array.length; j++) {
+      if ( array[j] === ' ' ) {
+        array.splice(j, 1);
+      }
+    }
+
+    for (var i = 0; i < array.length; i++) {
+      newArray[(array.length - 1) - i] = array[i] ;
+    }
+
+    for (var k = 0; k < array.length; k++) {
+
+      if ( newArray[k] ===  array[k]) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+
+}
+
+isPalindrome('A man a plan a canal Panama');
