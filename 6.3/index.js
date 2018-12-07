@@ -139,6 +139,7 @@ function isPalindrome(string) {
   if (string === '') {
     return true;
   } else {
+    
     for (var j = 0; j < array.length; j++) {
       if ( array[j] === ' ' ) {
         array.splice(j, 1);
@@ -149,14 +150,7 @@ function isPalindrome(string) {
       newArray[(array.length - 1) - i] = array[i] ;
     }
 
-    for (var k = 0; k < array.length; k++) {
-
-      if ( newArray[k] ===  array[k]) {
-        return true
-      } else {
-        return false
-      }
-    }
+     return array.join('') === newArray.join('');
   }
 
 }
