@@ -139,7 +139,7 @@ function isPalindrome(string) {
   if (string === '') {
     return true;
   } else {
-    
+
     for (var j = 0; j < array.length; j++) {
       if ( array[j] === ' ' ) {
         array.splice(j, 1);
